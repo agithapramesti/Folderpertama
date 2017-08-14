@@ -1,0 +1,119 @@
+SQL> ed
+Wrote file afiedt.buf
+
+  1  CREATE TABLE my_employee
+  2  (id NUMBER(4) CONSTRAINT my_employee_id_nn
+  3  NOT NULL,
+  4  last_name VARCHAR(25),
+  5  first_name VARCHAR(25),
+  6  userid VARCHAR(8),
+  7* salary NUMBER(9,2))
+SQL> /
+CREATE TABLE my_employee
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  CREATE TABLE my_employees
+  2  (id NUMBER(4) CONSTRAINT my_employee_id_nn
+  3  NOT NULL,
+  4  last_name VARCHAR(25),
+  5  first_name VARCHAR(25),
+  6  userid VARCHAR(8),
+  7* salary NUMBER(9,2))
+SQL> /
+CREATE TABLE my_employees
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  CREATE TABLE my_employeesyes
+  2  (id NUMBER(4) CONSTRAINT my_employee_id_nn
+  3  NOT NULL,
+  4  last_name VARCHAR(25),
+  5  first_name VARCHAR(25),
+  6  userid VARCHAR(8),
+  7* salary NUMBER(9,2))
+SQL> /
+(id NUMBER(4) CONSTRAINT my_employee_id_nn
+                         *
+ERROR at line 2:
+ORA-02264: name already used by an existing constraint 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  CREATE TABLE my_employeesyes
+  2  (id NUMBER(4) CONSTRAINT my_employeesyes_id_nn
+  3  NOT NULL,
+  4  last_name VARCHAR(25),
+  5  first_name VARCHAR(25),
+  6  userid VARCHAR(8),
+  7* salary NUMBER(9,2))
+SQL> /
+
+Table created.
+
+SQL> INSERT INTO my_employeesyes(id,last_name,first_name,userid,salary)
+  2  VALUES(1,'Patel','Ralph','rpatel',895);
+
+1 row created.
+
+SQL> INSERT INTO my_employeesyes(id,last_name,first_name,userid,salary)
+  2  VALUES(2,'Dancs','Betty','bdancs',860);
+
+1 row created.
+
+SQL> select * from my_employeesyes;
+
+        ID LAST_NAME                 FIRST_NAME                USERID           
+---------- ------------------------- ------------------------- --------         
+    SALARY                                                                      
+----------                                                                      
+         1 Patel                     Ralph                     rpatel           
+       895                                                                      
+                                                                                
+         2 Dancs                     Betty                     bdancs           
+       860                                                                      
+                                                                                
+
+SQL> set linesize 1000
+SQL> set pagesize 1000
+SQL> select * from my_employeesyes;
+
+        ID LAST_NAME                 FIRST_NAME                USERID       SALARY                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+---------- ------------------------- ------------------------- -------- ----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+         1 Patel                     Ralph                     rpatel          895                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+         2 Dancs                     Betty                     bdancs          860                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+SQL> spool off
+
+
+PEMBAHASAN : 
+  1  CREATE TABLE my_employeesyes -> kita akan membuat sebuah table dengan nama my_employeesyes, pastikan nama table tersebut belum pernah digunakan sebelumnya. karena jika sudah ada table dengan nama yang sama maka akan error.
+  2  (id NUMBER(4) CONSTRAINT my_employee_id_nn -> membuat field id dengan nama tipe data NUMBER dengan tampungan sebanyak 4 digit.
+  3  NOT NULL, ->id harus berisi sebuah nilai, tidak boleh kosong.
+  4  last_name VARCHAR(25), ->field last name bertipe data VARCHAR dengan tampungannya sebanyak 25 karakter.
+  5  first_name VARCHAR(25), ->field first name bertipe data VARCHAR dengan tampungannya sebanyak 25 karakter.
+  6  userid VARCHAR(8), ->field userid bertipe data VARCHAR dengan tampungannya sebanyak 25 karakter.
+  7* salary NUMBER(9,2)) ->field salary bertipe data NUMBER dengan 9 digit dan pecahan 2 digit.
+
+SQL> INSERT INTO my_employeesyes(id,last_name,first_name,userid,salary) ->deklarasi untuk memasukan data ke dalam tabel yang kita buat sebelumnya
+  2  VALUES(1,'Patel','Ralph','rpatel',895); ->nilai dari field yang terdapat dalam table yang kita deklarasikan
+
+1 row created.
+
+SQL> INSERT INTO my_employeesyes(id,last_name,first_name,userid,salary) ->deklarasi untuk memasukan data ke dalam tabel yang kita buat sebelumnya
+  2  VALUES(2,'Dancs','Betty','bdancs',860); ->nilai dari field yang terdapat dalam table yang kita deklarasikan
+
+1 row created.
+SQL> select * from my_employeesyes; -> untuk menampilkan hasil dari table yang kita buat serta value yang kita masukan.

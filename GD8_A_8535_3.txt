@@ -1,0 +1,16 @@
+SQL> DELETE my_employeesyes
+  2  WHERE userid='rpatel';
+
+1 row deleted.
+
+SQL> select * from my_employeesyes;
+
+        ID LAST_NAME                 FIRST_NAME                USERID       SALARY                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+---------- ------------------------- ------------------------- -------- ----------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+         2 Rizka                     Betty                     bdancs          860                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+SQL> spool off
+
+PEMBAHASAN :
+SQL> DELETE my_employeesyes -> deklarasi untuk menghapus nilai di dalam table yang kita buat
+  2  WHERE userid='rpatel'; -> salah satu value yang di tunjuk sebagai perwakilan baris yang akan dihapus. 
