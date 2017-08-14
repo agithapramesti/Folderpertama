@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+</head>
+<body>
+	<script>
+		function myNestedLoop(){
+			var inputan= prompt("Masukkan Angka: ");
+			var i,j;
+			var star="";
+			for(i=0;i<inputan;i++)
+			{
+				for(j=0;j<=i;j++)
+				{
+						star +="*";
+				}
+				star +="<br>";
+			}
+			console.log(star);
+			document.querySelector("body").innerHTML=star;
+		}
+		myNestedLoop();
+
+	</script>
+</body>
+</html>
