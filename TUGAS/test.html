@@ -1,0 +1,34 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+
+		<script>
+		function myFunction(){
+			var person=prompt("How Old are you? ");
+			alert("Your Age last year: "+(person-1));
+		}
+		/*
+		// latian 
+			function init(){
+				var name="Mozilla"; // name is a local variable by init
+				function displayName(){ // displayName() is the inner function, a closure
+					alert(name); // use variable declared in the parent function
+				}
+				displayName();
+			}
+			// closure termasuk nested function
+			init();
+			*/
+
+		</script>
+	</head>
+	<body>
+		<p>Click the button to demonstrate the prompt box.</p>
+		<button onclick="myFunction()">Click ME</button>
+		<p id="demo"></p>
+
+
+	</body>
+	</html>
+
